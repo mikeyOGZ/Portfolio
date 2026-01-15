@@ -1,0 +1,39 @@
+a {
+  text-decoration: none;
+  position: relative;
+  transition: all 0.5s ease;
+  text-shadow: none;
+}
+
+a::before,
+a::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  max-width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  color: #ffffff;
+  transition: all 0.5s ease;
+}
+
+a::before {
+  clip-path: inset(0 100% 0 0);
+  text-shadow: 2px 0 #ff00e1, -2px 0 #00f3ff;
+}
+
+a::after {
+  clip-path: inset(0 0 0 100%);
+  text-shadow: 0 2px #ff00e1, 0 -2px #00f3ff;
+}
+
+a:hover {
+  text-shadow: 2px 0 #ff00e1, -2px 0 #00f3ff, 0 2px #ff00e1, 0 -2px #00f3ff;
+}
+
+a:hover::before,
+a:hover::after {
+  clip-path: inset(0 0 0 0);
+}
